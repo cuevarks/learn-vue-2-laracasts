@@ -1,31 +1,40 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title></title>
     <style>
-        .is-loading { background-color: red; }
+      .is-loading {
+        background-color: red;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div id="root">
-        <button :class="{ 'is-loading' : isLoading }" @click="toggleClass">Toggle Me</button>
+      <button
+        :disabled="isDisabled"
+        :class="{ 'is-loading' : isLoading }"
+        @click="toggleClass"
+      >
+        Toggle Me
+      </button>
     </div>
 
     <script src="https://unpkg.com/vue@2.1.10/dist/vue.js"></script>
     <script>
-        var app = new Vue({
-            el: '#root',
+      var app = new Vue({
+        el: "#root",
 
-            data: {
-                isLoading: false
-            },
+        data: {
+          isLoading: false,
+          isDisabled: true,
+        },
 
-            methods: {
-                toggleClass() {
-                    this.isLoading = true;
-                }
-            }
-        });
+        methods: {
+          toggleClass() {
+            this.isLoading = true;
+          },
+        },
+      });
     </script>
-</body>
+  </body>
 </html>
